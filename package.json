@@ -1,6 +1,6 @@
 {
   "name": "accoutrement-herman",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "Sass tools for documenting accoutrement with Herman.",
   "homepage": "https://github.com/oddbird/accoutrement-herman",
   "repository": {
@@ -10,6 +10,7 @@
   "devDependencies": {
     "accoutrement-fonts": "^2.0.0-alpha.4",
     "accoutrement-scale": "^1.1.1",
+    "accoutrement-strings": "^1.1.0",
     "chalk": "^1.1.1",
     "gulp": "^3.9.0",
     "gulp-sass-lint": "^1.1.0",
@@ -38,8 +39,5 @@
   },
   "bugs": {
     "url": "https://github.com/oddbird/accoutrement-herman/issues"
-  },
-  "dependencies": {
-    "accoutrement-strings": "^1.1.0"
   }
 }
