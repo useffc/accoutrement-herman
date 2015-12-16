@@ -10,6 +10,10 @@
   $fonts,
   $sizes
 ) {
+  @if not variable-exists('font-style-options') {
+    @error 'Font-specimen requires `accoutrement-fonts`.';
+  }
+
   $var-options: join($font-style-options, $font-weight-options);
   $var-options: join($var-options, ('normal', 'regular'));
   $return: ();
@@ -43,7 +47,15 @@
     );
 
     @each $size in $sizes {
-      $scale: map-merge($scale, ($size: size($size, 'px')));
+      $px: $size;
+
+      @if function-exists('size') {
+        $px: size($px, 'px');
+      } @else if (type-of($px) != 'number') {
+        @warn 'Import `accoutrement-scale` in order to compile keyword sizes.';
+      }
+
+      $scale: map-merge($scale, ($size: $px));
     }
 
     $return: map-merge($return, (
