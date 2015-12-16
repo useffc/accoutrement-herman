@@ -1,0 +1,30 @@
+// Maps
+// ====
+
+
+@import '../node_modules/accoutrement-strings/sass/strings';
+
+
+// Map Compile
+// -----------
+/// Get output values from a sass map,
+/// using any function for compilation.
+@function map-compile(
+  $map,
+  $function: null
+) {
+  $output: ();
+
+  @each $name, $value in $map {
+    @if $function and function-exists($function) {
+      $value: call($function, $name);
+    }
+
+    $value: inspect($value);
+    $value: str-replace($value, '"', '\\"', true);
+
+    $output: map-merge($output, ($name: $value));
+  }
+
+  @return $output;
+}

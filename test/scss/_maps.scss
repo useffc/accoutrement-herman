@@ -1,0 +1,39 @@
+// Map Tests
+// =========
+
+
+$test-map: (
+  'one': ('list' 'of' 'quoted' 'strings'),
+  'two': 2 4 6 8,
+  'three': 'one',
+);
+
+@function test-first-last(
+  $key
+) {
+  @if index(map-keys($test-map), $key) {
+    $key: map-get($test-map, $key);
+    $key: test-first-last($key);
+  }
+
+  @return nth($key, 1) nth($key, -1);
+}
+
+
+// Tests
+// -----
+
+@include test-module('Map Compile [function]') {
+  @include test('Compiles map values with function') {
+    $expect: (
+      'one': 'list\\" \\"strings',
+      'two': '2 8',
+      'three': 'list\\" \\"strings',
+    );
+
+    @include assert-equal(
+      map-compile($test-map, 'test-first-last'),
+      $expect,
+      'Returns map with compiled values.');
+  }
+}

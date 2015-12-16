@@ -1,0 +1,45 @@
+{
+  "name": "accoutrement-herman",
+  "version": "1.0.0-alpha.1",
+  "description": "Sass tools for documenting accoutrement with Herman.",
+  "homepage": "https://github.com/oddbird/accoutrement-herman",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/oddbird/accoutrement-herman.git"
+  },
+  "devDependencies": {
+    "accoutrement-fonts": "^2.0.0-alpha.4",
+    "accoutrement-scale": "^1.1.1",
+    "chalk": "^1.1.1",
+    "gulp": "^3.9.0",
+    "gulp-sass-lint": "^1.1.0",
+    "gulp-util": "^3.0.7",
+    "mocha": "^2.3.4",
+    "sass-true": "^2.0.3",
+    "sassdoc": "^2.1.15",
+    "sassdoc-theme-herman": "^0.1.0"
+  },
+  "author": "Miriam Suzanne <miriam@oddbird.net>",
+  "license": "MIT",
+  "keywords": [
+    "sass",
+    "accoutrement",
+    "toolkit",
+    "sassdoc",
+    "herman",
+    "eyeglass-module"
+  ],
+  "eyeglass": {
+    "exports": "eyeglass-exports.js"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha",
+    "release": "npm run test && gulp sasslint && gulp sassdoc"
+  },
+  "bugs": {
+    "url": "https://github.com/oddbird/accoutrement-herman/issues"
+  },
+  "dependencies": {
+    "accoutrement-strings": "^1.1.0"
+  }
+}

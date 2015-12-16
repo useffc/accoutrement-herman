@@ -1,0 +1,53 @@
+// Font Tests
+// ==========
+
+$fonts: (
+  'heading': (
+    'name': 'maven',
+    'stack': ('helvetica', 'arial', sans-serif),
+    'source': 'http://example.com',
+    'normal': 'maven/maven_pro_regular-webfont',
+    'bold': 'maven/maven_pro_bold-webfont',
+  ),
+
+  'code': (
+    'name': 'Consolas',
+    'stack': ('Menlo', 'Monaco', 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif),
+  ),
+);
+
+$sizes: (
+  'small': 14px,
+  'medium': 16px,
+  'large': 18px,
+);
+
+
+// Tests
+// -----
+
+@include test-module('font-specimen [function]') {
+  @include test('New font-specimen map') {
+    $expect: (
+      'heading': (
+        'name': 'maven',
+        'stack': ('helvetica', 'arial', sans-serif),
+        'source': 'http://example.com',
+        'faces': ('normal' 'bold'),
+        'scale': $sizes,
+      ),
+      'code': (
+        'name': 'Consolas',
+        'stack': ('Menlo', 'Monaco', 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif),
+        'source': null,
+        'faces': ('regular', 'bold', 'italic', 'bold italic'),
+        'scale': $sizes,
+      ),
+    );
+
+    @include assert-equal(
+      font-specimen($fonts, $sizes),
+      $expect,
+      'Compiles font-specimen data from a combination of fonts and scales');
+  }
+}

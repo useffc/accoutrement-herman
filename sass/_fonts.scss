@@ -1,0 +1,62 @@
+// Accoutrement Fonts
+// ==================
+
+
+// Font Specimen
+// -------------
+/// Return a map of font-families, variants, and sizes
+/// for use in creating a font-specimen.
+@function font-specimen(
+  $fonts,
+  $sizes
+) {
+  $var-options: join($font-style-options, $font-weight-options);
+  $var-options: join($var-options, ('normal', 'regular'));
+  $return: ();
+
+  @if type-of($sizes) == 'map' {
+    $sizes: map-keys($sizes);
+  }
+
+  @each $type, $value in $fonts {
+    $name: map-get($value, 'name');
+    $stack: map-get($value, 'stack');
+    $source: map-get($value, 'source');
+    $faces: ();
+    $scale: ();
+
+    @each $face, $file in $value {
+      @if index($var-options, nth($face, 1)) {
+        $string: null;
+
+        @each $part in $face {
+          $string: if($string, '#{$string} #{$part}', $part);
+        }
+        $faces: append($faces, $string);
+      }
+    }
+
+    $faces: if(
+      length($faces) > 0,
+      $faces,
+      ('regular', 'bold', 'italic', 'bold italic')
+    );
+
+    @each $size in $sizes {
+      $scale: map-merge($scale, ($size: size($size, 'px')));
+    }
+
+    $return: map-merge($return, (
+        $type: (
+          'name': $name,
+          'stack': $stack,
+          'source': $source,
+          'faces': $faces,
+          'scale': $scale,
+        )
+      )
+    );
+  }
+
+  @return $return;
+}
