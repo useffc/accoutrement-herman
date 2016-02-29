@@ -10,11 +10,11 @@
   $fonts,
   $sizes
 ) {
-  @if not variable-exists('font-style-options') {
-    @error 'Font-specimen requires `accoutrement-fonts`.';
+  @if not variable-exists('_font-style-options') {
+    @error 'Font-specimen requires `accoutrement-type`.';
   }
 
-  $var-options: join($font-style-options, $font-weight-options);
+  $var-options: join($_font-style-options, $_font-weight-options);
   $var-options: join($var-options, ('normal', 'regular'));
   $return: ();
 

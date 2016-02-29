@@ -1,6 +1,6 @@
 {
   "name": "accoutrement-herman",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "description": "Sass tools for documenting accoutrement with Herman.",
   "homepage": "https://github.com/oddbird/accoutrement-herman",
   "repository": {
@@ -8,17 +8,17 @@
     "url": "git://github.com/oddbird/accoutrement-herman.git"
   },
   "devDependencies": {
-    "accoutrement-fonts": "^2.0.0-alpha.4",
-    "accoutrement-scale": "^1.1.1",
-    "accoutrement-strings": "^1.1.0",
-    "chalk": "^1.1.1",
-    "gulp": "^3.9.0",
-    "gulp-sass-lint": "^1.1.0",
-    "gulp-util": "^3.0.7",
-    "mocha": "^2.3.4",
-    "sass-true": "^2.0.3",
-    "sassdoc": "^2.1.15",
-    "sassdoc-theme-herman": "^0.1.0"
+    "accoutrement-scale": "2.0.0",
+    "accoutrement-strings": "1.1.0",
+    "accoutrement-type": "2.0.0",
+    "chalk": "1.1.1",
+    "gulp": "3.9.0",
+    "gulp-sass-lint": "1.1.0",
+    "gulp-util": "3.0.7",
+    "mocha": "2.3.4",
+    "sass-true": "2.0.3",
+    "sassdoc": "2.1.20",
+    "sassdoc-theme-herman": "0.2.1"
   },
   "author": "Miriam Suzanne <miriam@oddbird.net>",
   "license": "MIT",
