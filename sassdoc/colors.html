@@ -1,0 +1,28 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>accoutrement-herman Documentation</title><link href="assets/img/favicon.ico" rel="shortcut icon"><link rel="stylesheet" href="assets/css/main.css"><link rel="stylesheet" href="assets/css/theme.css"></head><body><header role="banner" data-sassdoc-region="banner"><h1 data-sassdoc="project-title"><a href="https://github.com/oddbird/accoutrement-herman" rel="home" data-sassdoc="project-name">accoutrement-herman</a> <span data-sassdoc="project-version">1.0.0-alpha.4</span></h1></header><nav role="navigation" data-sassdoc-region="nav"><h2 data-sassdoc="nav-title"><a href="index.html" rel="home" data-sassdoc-nav="is-not-active">Pattern Library</a></h2><a href="colors.html" data-sassdoc-nav="is-active">colors</a> <a href="headings.html" data-sassdoc-nav="is-not-active">headings</a> <a href="undefined.html" data-sassdoc-nav="is-not-active">general</a> <a href="webfonts.html" data-sassdoc-nav="is-not-active">webfonts</a></nav><main role="main" data-sassdoc-region="main" data-sassdoc-page="colors"><h2 data-sassdoc="page-title">colors</h2><section data-sassdoc-item="variable" id="variable--brand-colors"><h4 data-sassdoc="item-title"><span data-sassdoc="item-name">$brand-colors</span> <span data-sassdoc="item-type">variable</span></h4><div data-sassdoc="item-description"><p>We use bright primary colors for the main brand, everything else is based on these colors.</p></div><pre data-sassdoc="hljs"><code class="lang-scss">$brand-colors: (
+  &#39;brand-orange&#39;: hsl(24, 100%, 39%),
+  &#39;brand-blue&#39;: hsl(195, 85%, 35%),
+  &#39;brand-pink&#39;: hsl(330, 85%, 48%),
+);</code></pre><div data-sassdoc="color-palette"></div></section><section data-sassdoc-item="variable" id="variable--neutral-colors"><h4 data-sassdoc="item-title"><span data-sassdoc="item-name">$neutral-colors</span> <span data-sassdoc="item-type">variable</span></h4><div data-sassdoc="item-description"><p>Use these neutral colors to create structure and hierarchy in the document.</p></div><pre data-sassdoc="hljs"><code class="lang-scss">$neutral-colors: (
+  &#39;white&#39;: #fff,
+  &#39;light-gray&#39;: &#39;brand-blue&#39; (&#39;tint&#39;: 80%, &#39;desaturate&#39;: 80%),
+  &#39;gray&#39;: &#39;brand-blue&#39; (&#39;desaturate&#39;: 80%),
+  &#39;black&#39;: &#39;brand-blue&#39; (&#39;shade&#39;: 65%),
+);</code></pre><div data-sassdoc="color-palette"></div></section><section data-sassdoc-item="variable" id="variable--status-colors"><h4 data-sassdoc="item-title"><span data-sassdoc="item-name">$status-colors</span> <span data-sassdoc="item-type">variable</span></h4><div data-sassdoc="item-description"><p>These status colors for UI elements give a quick sense of progress, warning, or errors.</p></div><pre data-sassdoc="hljs"><code class="lang-scss">$status-colors: (
+  &#39;go&#39;: hsl(75, 65%, 30%),
+  &#39;yield&#39;: &#39;brand-orange&#39;,
+  &#39;stop&#39;: hsl(0, 85%, 50%),
+);</code></pre><div data-sassdoc="color-palette"></div></section><section data-sassdoc-item="variable" id="variable--theme-colors"><h4 data-sassdoc="item-title"><span data-sassdoc="item-name">$theme-colors</span> <span data-sassdoc="item-type">variable</span></h4><div data-sassdoc="item-description"><p>Applying the brand and accent colors to a sitewide theme.</p></div><pre data-sassdoc="hljs"><code class="lang-scss">$theme-colors: (
+  &#39;contrast-light&#39;: &#39;white&#39;,
+  &#39;contrast-dark&#39;: &#39;black&#39;,
+  &#39;background&#39;: &#39;white&#39;,
+  &#39;text&#39;: &#39;black&#39;,
+  &#39;text-light&#39;: &#39;gray&#39;,
+  &#39;border&#39;: &#39;gray&#39;,
+  &#39;callout&#39;: &#39;light-gray&#39;,
+  &#39;overlay&#39;: &#39;callout&#39; (&#39;rgba&#39;: 0.9),
+  &#39;shadow&#39;: &#39;gray&#39; (&#39;rgba&#39;: 0.5),
+  &#39;action&#39;: &#39;brand-orange&#39;,
+  &#39;focus&#39;: &#39;action&#39; (&#39;shade&#39;: 10%),
+  &#39;active&#39;: &#39;action&#39;,
+  &#39;accent&#39;: &#39;brand-pink&#39;,
+);</code></pre><div data-sassdoc="color-palette"></div></section></main><script type="text/javascript" src="assets/js/highlight.js"></script><script type="text/javascript">hljs.initHighlightingOnLoad();</script></body></html>
