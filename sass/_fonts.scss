@@ -72,3 +72,23 @@
 
   @return $return;
 }
+
+
+// Font Specimen [mixin]
+// ---------------------
+@mixin font-specimen(
+  $fonts: $fonts,
+  $sizes: $sizes
+) {
+  @each $font, $details in $fonts {
+    [data-sassdoc-font='#{$font}'] {
+      @include font-family($font);
+    }
+  }
+
+  @each $size in map-keys($text-sizes) {
+    [data-specimen-size='#{$size}'] {
+      @include font-size($size);
+    }
+  }
+}
