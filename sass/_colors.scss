@@ -1,0 +1,23 @@
+// Colors
+// ======
+
+
+// Color Palette [mixin]
+// ---------------------
+@mixin color-palette(
+  $colors: $colors
+) {
+  @each $name, $value in $colors {
+    [data-sassdoc-color='#{$name}'] {
+      [data-sassdoc='color-swatch'] {
+        background: color($value);
+      }
+
+      @if map-has-key($colors, $value) {
+        [data-sassdoc='color-name'] {
+          @include after(' (#{$value})');
+        }
+      }
+    }
+  }
+}

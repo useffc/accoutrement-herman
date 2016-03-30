@@ -1,0 +1,76 @@
+// Color Settings
+// ==============
+
+
+// Brand Colors
+// ------------
+/// We use bright primary colors for the main brand,
+/// everything else is based on these colors.
+/// @preview color-palette
+/// @group colors
+$brand-colors: (
+  'brand-orange': hsl(24, 100%, 39%),
+  'brand-blue': hsl(195, 85%, 35%),
+  'brand-pink': hsl(330, 85%, 48%),
+);
+
+
+// Accent Colors
+// -------------
+/// We have a set of secondary accent colors
+/// to help flesh out the palette.
+/// @preview color-palette
+/// @group colors
+$accent-colors: (
+  'lightest': #fff,
+  'lighter': 'brand-blue' ('tint': 80%, 'desaturate': 80%),
+  'light': 'brand-blue' ('desaturate': 80%),
+  'dark': 'brand-blue' ('shade': 65%),
+  'go': hsl(75, 65%, 30%),
+  'yield': 'brand-orange',
+  'stop': hsl(0, 85%, 50%),
+);
+
+
+// Theme Colors
+// ------------
+/// Applying the brand and accent colors
+/// to a sitewide theme.
+/// @preview color-palette
+/// @group colors
+$theme-colors: (
+  'contrast-light': 'lightest',
+  'contrast-dark': 'dark',
+  'background': 'lightest',
+  'text': 'dark',
+  'text-light': 'light',
+  'border': 'light',
+  'callout': 'lighter',
+  'overlay': 'callout' ('rgba': 0.9),
+  'shadow': 'light' ('rgba': 0.5),
+  'action': 'brand-orange',
+  'focus': 'action' ('shade': 10%),
+  'active': 'action',
+  'accent': 'brand-pink',
+);
+
+
+// All Colors
+// ----------
+@function merge-colors(
+  $maps...
+) {
+  $new: ();
+
+  @each $map in $maps {
+    $new: map-merge($new, $map);
+  }
+
+  @return $new;
+}
+
+$colors: merge-colors(
+  $brand-colors,
+  $accent-colors,
+  $theme-colors
+);

@@ -1,0 +1,77 @@
+// Map Tests
+// =========
+
+
+$test-map: (
+  'one': ('list' 'of' 'quoted' 'strings'),
+  'two': 2 4 6 8,
+  'three': 'one',
+);
+
+@function test-first-last(
+  $key
+) {
+  @if index(map-keys($test-map), $key) {
+    $key: map-get($test-map, $key);
+    $key: test-first-last($key);
+  }
+
+  @return nth($key, 1) nth($key, -1);
+}
+
+
+// String Replace
+// --------------
+@include test-module('String Replace [function]') {
+
+  @include test('Replacing a sub-string with another string') {
+    $test: str-replace('hello terrible world!', 'terrible', 'beautiful');
+    $expect: 'hello beautiful world!';
+    @include assert-equal($test, $expect,
+      'Substring should be replaced within larger string');
+  }
+
+  @include test('Replacing a full string') {
+    $test: str-replace('hello', 'hello', 'world');
+    $expect: 'world';
+    @include assert-equal($test, $expect,
+      'Full string should be replaced');
+  }
+
+  @include test('Replacing a sub-string with nothing') {
+    $test: str-replace('hello world', 'hello ', false);
+    $expect: 'world';
+    @include assert-equal($test, $expect,
+      'Replacing a string with false should remove it entirely');
+
+    $test: str-replace('hello world', 'hello ', null);
+    $expect: 'world';
+    @include assert-equal($test, $expect,
+      'Replacing a string with null should remove it entirely');
+  }
+
+  @include test('Replacing all instances of a sub-string') {
+    @include assert-equal(
+      str-replace('hello world', 'o', '000', true),
+      'hell000 w000rld',
+      'All instances can be replaced at once');
+  }
+}
+
+
+// Map Compile
+// -----------
+@include test-module('Map Compile [function]') {
+  @include test('Compiles map values with function') {
+    $expect: (
+      'one': 'list\\" \\"strings',
+      'two': '2 8',
+      'three': 'list\\" \\"strings',
+    );
+
+    @include assert-equal(
+      map-compile($test-map, 'test-first-last'),
+      $expect,
+      'Returns map with compiled values.');
+  }
+}

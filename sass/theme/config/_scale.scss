@@ -1,0 +1,33 @@
+// Scale Settings
+// ==============
+
+
+$base-size: 22px;
+$ratios: ('herman': 1.4);
+
+$text-sizes: (
+  'root': $base-size,
+  'rhythm': 'root' ('herman': 1),
+
+  'h1': 'root' ('herman': 3),
+  'h2': 'root' ('herman': 2),
+  'h3': 'root' ('herman': 1),
+
+  'large': 28px,
+  'medium': 24px,
+  'normal': 'root',
+  'small': 18px,
+  'smaller': 16px,
+);
+
+$component-sizes: (
+  'gutter': 'rhythm',
+  'spacer': 'gutter' ('linear': 3),
+  'shim': 'gutter' ('linear': 0.5),
+  'half-shim': 'gutter' ('linear': 0.25),
+  'page': 50rem,
+  'color-swatch': 8rem,
+  'icon-preview': 'h1',
+);
+
+$sizes: map-merge($text-sizes, $component-sizes);
